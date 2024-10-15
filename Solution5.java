@@ -43,7 +43,7 @@ import java.util.Arrays;
  */
 class Solution5 {
     static final int P = 1000000007;
-    static final int MAX_N = 100005;
+    static final int MAX_N = /*100005*/100001;
 
     int[] f = new int[MAX_N];
 
@@ -66,12 +66,12 @@ class Solution5 {
     public void pretreatment() {
         f[0] = 0;
         for (int i = 1; i < MAX_N; ++i) {
-            f[i] = (f[i - 1] << 1) % P;
+            f[i] = (f[i - 1]/*<< 1*/*2) % P;
         }
     }
 
     public int binarySearch(int[] nums, int target) {
-        int low = 0, high = nums.length;
+        int low = 0, high = nums.length/**/-1;
         while (low <= high) {
             int mid = (high - low) / 2 + low;
             if (mid == nums.length) {
